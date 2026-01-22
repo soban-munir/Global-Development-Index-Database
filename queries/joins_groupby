@@ -1,0 +1,7 @@
+-- Average GDP growth per country
+SELECT c.Country_Name, AVG(dd.Value) AS Avg_GDP
+FROM Development_Data dd
+JOIN Country c ON dd.Country_ID = c.Country_ID
+JOIN Indicator i ON dd.Indicator_ID = i.Indicator_ID
+WHERE i.Indicator_Name = 'GDP Growth Rate'
+GROUP BY c.Country_Name;
